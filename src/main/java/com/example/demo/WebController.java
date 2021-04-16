@@ -1,15 +1,15 @@
 package com.example.demo;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("api/v1/hello")
 @RestController
 public class WebController {
 
-    @GetMapping
-    public String getHelloWorld() {
-        return "Hello World";
+    @GetMapping(value={"/hello"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    String sayHello() {
+        return("{\"message\":\"hello there\"}");
     }
+
 }
